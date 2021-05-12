@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ewell Shop</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="agree">I agree to the <a href="https://ewellshop.com/terms">Terms</a> and
+        <a href="https://ewellshop.com/privacy-policy">Privacy Policy</a></string>
+    <string name="discount"><u>Add a discount</u></string>
+</resources>
