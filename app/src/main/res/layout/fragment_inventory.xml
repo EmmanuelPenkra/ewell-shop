@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Inventory">
+
+    <LinearLayout
+        style="@style/Layout.Linear.Header">
+        <TextView
+            style="@style/Font.Title.Main"
+            android:text="Inventory"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            style="@style/Font.Button.Default"
+            android:id="@+id/newB"
+            android:text="Add new item"/>
+    </LinearLayout>
+    <EditText
+        style="@style/Input.Search"
+        android:hint="Search"/>
+    <GridView
+        style="@style/Grid.Default"
+        android:id="@+id/inventoryGV"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/emptyLL"
+        android:gravity="center">
+        <ImageView
+            style="@style/Image.Product.Medium"
+            android:src="@drawable/inventory"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No items found in your store"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="17.5sp"/>
+    </LinearLayout>
+</LinearLayout>

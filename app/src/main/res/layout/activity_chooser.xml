@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Chooser">
+    <info.androidhive.fontawesome.FontTextView
+        style="@style/Font.Awesome.Button"
+        android:onClick="goBack"
+        android:text="@string/fa_arrow_left_solid"/>
+    <TextView
+        style="@style/Font.Title.Page"
+        android:text="Choose an Account" />
+    <ListView
+        style="@style/List.Default"
+        android:id="@+id/settingsLV"/>
+</LinearLayout>

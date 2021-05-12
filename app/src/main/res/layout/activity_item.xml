@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Item">
+    <info.androidhive.fontawesome.FontTextView
+        style="@style/Font.Awesome.Button"
+        android:onClick="goBack"
+        android:text="@string/fa_arrow_left_solid"/>
+    <info.androidhive.fontawesome.FontTextView
+        style="@style/Font.Awesome.Button"
+        android:onClick="moreOptions"
+        android:layout_gravity="right"
+        android:id="@+id/optionsTV"
+        android:text="@string/fa_ellipsis_v_solid"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <ImageView
+            style="@style/Image.Product"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/imageIV"
+            android:src="@drawable/product"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:id="@+id/conditionCV"
+            style="@style/View.Tag.Default">
+            <TextView
+                style="@style/Font.Tag"
+                android:id="@+id/conditionTV"
+                android:text="CHOOSE CONDITION" />
+        </androidx.cardview.widget.CardView>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:background="@color/white"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:text="Nestle Milo Can Regular"
+            android:hint="Item Name"
+            android:maxLength="25"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/black"
+            android:id="@+id/nameET"
+            android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:background="@color/white"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            android:hint="Item Description"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:maxLength="250"
+            android:id="@+id/descriptionET"
+            android:gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/stockET"
+            android:inputType="number"
+            android:maxLength="3"
+            android:hint="Stock"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="7.5dp"
+                android:src="@drawable/ic_price_tag" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="25dp"
+                style="@style/Font.bold"
+                android:textSize="20sp"
+                android:hint="0"
+                android:maxLength="12"
+                android:id="@+id/priceET"
+                android:inputType="numberDecimal"
+                android:background="@color/white"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Font.bold"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:text=" JMD"/>
+        </LinearLayout>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="15dp"-->
+<!--            android:text="@string/discount" />-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/updateB"
+            style="@style/Button.Expanded"
+            android:text="Update"/>
+    </LinearLayout>
+</FrameLayout>

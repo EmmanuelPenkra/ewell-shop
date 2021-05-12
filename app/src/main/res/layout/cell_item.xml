@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp"
+    android:orientation="vertical">
+    <ImageView
+        style="@style/Image.Product"
+        android:src="@drawable/product"
+        android:id="@+id/imageIV"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        style="@style/View.Tag.Default">
+        <TextView
+            android:text="Nestle Milo Can Regular"
+            style="@style/Font.Tag"
+            android:id="@+id/nameTV"/>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

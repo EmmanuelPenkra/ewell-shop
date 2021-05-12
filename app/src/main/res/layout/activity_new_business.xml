@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NewBusiness">
+    <info.androidhive.fontawesome.FontTextView
+        style="@style/Font.Awesome.Button"
+        android:onClick="goBack"
+        android:id="@+id/backB"
+        android:text="@string/fa_times_solid"/>
+    <TextView
+        style="@style/Font.Title.Page"
+        android:text="Create Your Business" />
+    <ScrollView
+        style="@style/Scroll">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="vertical">
+            <TextView
+                style="@style/Font.SubTitle"
+                android:text="We can't wait to see how successful your business become on Ewell Shop!"/>
+            <EditText
+                style="@style/Input.Info"
+                android:layout_width="match_parent"
+                android:id="@+id/nameET"
+                android:hint="Business Name eg. Ewell Shop"
+                android:inputType="textCapWords"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    style="@style/Input.Info"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:hint="Parish"
+                    android:focusable="false"
+                    android:id="@+id/parishET" />
+                <EditText
+                    style="@style/Input.Info"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:hint="City/Town"
+                    android:focusable="false"
+                    android:id="@+id/cityET" />
+            </LinearLayout>
+            <EditText
+                style="@style/Input.Info"
+                android:layout_width="match_parent"
+                android:hint="Street Address"
+                android:id="@+id/addressET"
+                android:inputType="textCapWords" />
+            <TextView
+                style="@style/Font.SubTitle"
+                android:text="Contact Details"/>
+            <EditText
+                style="@style/Input.Info"
+                android:layout_width="match_parent"
+                android:hint="Business Email"
+                android:id="@+id/emailET"
+                android:inputType="textEmailAddress" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    style="@style/Input.Info"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:hint="Call No."
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/phoneET"
+                    android:inputType="phone"/>
+                <EditText
+                    style="@style/Input.Info"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:hint="WhatsApp No."
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/whatsappET"
+                    android:inputType="phone" />
+            </LinearLayout>
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/agreeCB"
+                android:text="@string/agree"/>
+        </LinearLayout>
+    </ScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:onClick="cont"
+        style="@style/Button.Expanded"
+        android:text="Continue"/>
+</LinearLayout>

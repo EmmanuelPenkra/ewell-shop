@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pin">
+    <info.androidhive.fontawesome.FontTextView
+        style="@style/Font.Awesome.Button"
+        android:onClick="goBack"
+        android:id="@+id/backB"
+        android:text="@string/fa_arrow_left_solid"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_password"/>
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:background="@color/white"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Create a PIN"
+            android:id="@+id/titleTV"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:background="@color/white"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/infoTV"
+            android:text="For security reasons, you will be required to provide your PIN everytime you open the app."
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <EditText
+                style="@style/Input.Pin"
+                android:id="@+id/pin1"
+                android:nextFocusRight="@id/pin2"/>
+            <EditText
+                style="@style/Input.Pin"
+                android:id="@+id/pin2"
+                android:nextFocusRight="@id/pin3"/>
+            <EditText
+                style="@style/Input.Pin"
+                android:id="@+id/pin3"
+                android:nextFocusRight="@id/pin4"/>
+            <EditText
+                style="@style/Input.Pin"
+                android:id="@+id/pin4"/>
+        </LinearLayout>
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="15dp"-->
+        <!--            android:text="@string/discount" />-->
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/continueB"-->
+<!--            android:text="Continue"-->
+<!--            android:onClick="cont"-->
+<!--            style="@style/Button.Expanded"/>-->
+    </LinearLayout>
+</FrameLayout>
