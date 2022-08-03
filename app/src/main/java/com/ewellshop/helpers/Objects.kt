@@ -12,9 +12,8 @@ data class Item (
     val name: String,
     val description: String,
     val price: Double,
-    val stock: Int?,
     var condition: ItemCondition?,
-    val state: XBusinessInventory
+    var state: XBusinessInventory
 ) : Serializable
 
 data class OrderItem (

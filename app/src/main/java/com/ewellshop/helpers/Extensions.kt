@@ -4,10 +4,17 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.text.TextUtils
+import android.util.Log
+import com.ewellshop.helpers.Constants.TAG
+import kotlinx.android.synthetic.main.activity_item.*
 import org.json.JSONArray
 import org.json.JSONObject
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.reflect.KClass
 
 operator fun JSONArray.iterator(): Iterator<JSONObject>
         = (0 until length()).asSequence().map { get(it) as JSONObject }.iterator()
@@ -39,7 +46,7 @@ fun String.formatNumber(mask: String): String {
     return result
 }
 
-fun String.numbers (): String {
+fun String.numbers(): String {
     return this.filter { it.isDigit() }
 }
 
@@ -68,6 +75,15 @@ fun Context.openURL(url: String) {
 
 fun Int.isTrue(): Boolean {
     return this > 0
+}
+
+fun Double.currency(): String {
+    val formatter = NumberFormat.getCurrencyInstance() as DecimalFormat
+    val symbols: DecimalFormatSymbols = formatter.decimalFormatSymbols
+    symbols.currencySymbol = "" // Don't use null.
+
+    formatter.decimalFormatSymbols = symbols
+    return formatter.format(this)
 }
 
 inline fun <T> MutableList<T>.mapInPlace(mutator: (T) -> T) {

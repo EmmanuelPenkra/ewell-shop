@@ -48,35 +48,17 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="50dp"
-                app:cornerRadius="20dp"
-                android:paddingLeft="12dp"
-                app:elevation="0dp"
-                app:backgroundTint="?colorAccent"
-                android:textColor="@color/black"
                 android:onClick="signIn"
-                android:paddingRight="12dp"
-                android:id="@+id/editB"
-                android:textAllCaps="false"
                 android:layout_marginRight="5dp"
-                style="@style/Font.bold"
-                android:textStyle="bold"
+                style="@style/Font.Button"
+                android:backgroundTint="@color/purple_200"
                 android:text="Sign In"/>
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="50dp"
-                app:cornerRadius="20dp"
-                android:paddingLeft="12dp"
-                app:elevation="0dp"
-                android:paddingRight="12dp"
-                android:id="@+id/availableB"
                 android:layout_marginLeft="5dp"
-                app:backgroundTint="@color/purple_700"
-                android:textAllCaps="false"
                 android:onClick="signUp"
-                style="@style/Font.bold"
-                android:textStyle="bold"
+                style="@style/Font.Button.Default"
                 android:text="Create Store"/>
         </LinearLayout>
     </LinearLayout>

@@ -14,13 +14,15 @@
         android:layout_gravity="end"/>
     <ImageView
         style="@style/Image.Product"
-        android:src="@drawable/product"/>
+        android:src="@drawable/product"
+        android:id="@+id/imageIV"/>
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         style="@style/View.Tag.Default">
         <TextView
             style="@style/Font.Tag"
-            android:text="NEW"  />
+            android:text="NEW"
+            android:id="@+id/tagTV"/>
     </androidx.cardview.widget.CardView>
     <TextView
         android:layout_width="match_parent"
@@ -32,15 +34,6 @@
         android:id="@+id/nameTV"
         android:text="Nestle Milo Can Regular"
         android:textColor="?android:textColorPrimary"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:gravity="center"
-        android:id="@+id/descriptionTV"
-        android:textSize="15sp"
-        android:text="5 left"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,6 +50,7 @@
             android:layout_height="wrap_content"
             style="@style/Font.bold"
             android:textSize="20sp"
+            android:id="@+id/priceTV"
             android:textColor="@color/black"
             android:text="2094 JMD"/>
     </LinearLayout>
@@ -68,14 +62,14 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
-            style="@style/Font.Button.Error"
-            android:text="Out of Order"/>
+            android:id="@+id/conditionB"
+            style="@style/Font.Button"
+            android:text="Out of Stock"/>
         <com.google.android.material.button.MaterialButton
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:onClick="finishOrder"
-            android:id="@+id/editB"
             android:layout_marginLeft="5dp"
+            android:id="@+id/editB"
             style="@style/Font.Button.Default"
             android:text="Edit Item"/>
     </LinearLayout>

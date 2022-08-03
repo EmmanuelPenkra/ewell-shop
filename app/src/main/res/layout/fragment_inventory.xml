@@ -20,6 +20,7 @@
     </LinearLayout>
     <EditText
         style="@style/Input.Search"
+        android:id="@+id/searchET"
         android:hint="Search"/>
     <GridView
         style="@style/Grid.Default"
@@ -38,6 +39,7 @@
             android:layout_height="wrap_content"
             android:text="No items found in your store"
             android:layout_margin="10dp"
+            android:id="@+id/emptyTV"
             android:textColor="@color/black"
             android:textSize="17.5sp"/>
     </LinearLayout>

@@ -35,11 +35,16 @@ class ItemsLookup : AppCompatActivity() {
 
         searchET.addTextChangedListener {
             // SEARCH IN INVENTORY
+            val tempResults = ArrayList<Item>()
+            tempResults.addAll(searchResults)
+
             val query = it.toString().trim()
             searchResults.clear()
             searchResults.addAll(inventory.filter { i -> i.name.contains(query, true) } as
                     ArrayList<Item>)
-            inventoryAdapter?.notifyDataSetChanged()
+
+            if (!tempResults.containsAll(searchResults) || !searchResults.containsAll(tempResults))
+                inventoryAdapter?.notifyDataSetChanged()
         }
 
         getEwellStock()
@@ -50,7 +55,7 @@ class ItemsLookup : AppCompatActivity() {
             for (item in it.getJSONArray("stock"))
                 inventory.add(
                     Item(item.getInt("id"), item.getString("image"), item.getString
-                        ("name"), item.getString("description"), 0.0, null, null, XBusinessInventory
+                        ("name"), item.getString("description"), 0.0, null, XBusinessInventory
                         .AVAILABLE)
                 )
 

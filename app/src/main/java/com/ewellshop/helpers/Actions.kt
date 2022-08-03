@@ -128,6 +128,7 @@ class Actions {
             Glide.with(EwellShop.appContext!!)
                 .load(url)
 //                .error(default)
+//                .skipMemoryCache(true)
                 .into(imageView)
         }
 

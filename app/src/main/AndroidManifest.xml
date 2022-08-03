@@ -27,14 +27,16 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".Starter"
             android:launchMode="singleTask" />
-        <activity android:name=".ItemsLookup" />
+        <activity android:name=".ItemsLookup"
+            android:windowSoftInputMode="adjustResize"  />
         <activity
             android:name=".Item"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".OrderDetails" />
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

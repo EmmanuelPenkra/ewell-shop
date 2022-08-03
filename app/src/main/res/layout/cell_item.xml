@@ -11,6 +11,7 @@
         android:id="@+id/imageIV"/>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
+        android:id="@+id/cardView"
         style="@style/View.Tag.Default">
         <TextView
             android:text="Nestle Milo Can Regular"

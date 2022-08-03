@@ -12,8 +12,10 @@ import com.ewellshop.helpers.*
 import com.ewellshop.helpers.Constants.DOMAIN
 import com.ewellshop.helpers.Constants.TAG
 import com.ewellshop.helpers.Item
+import com.ewellshop.popups.ImagePopup
 import kotlinx.android.synthetic.main.activity_item.*
 import kotlinx.android.synthetic.main.activity_pin.*
+import java.lang.Math.round
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.text.NumberFormat
@@ -40,8 +42,14 @@ class Item : AppCompatActivity() {
             selectCondition()
         }
 
+        imageIV.setOnClickListener { showImage() }
+
         setupFields()
         getExtras()
+    }
+
+    private fun showImage(){
+        ImagePopup(item!!.image).show(supportFragmentManager, "imagePopup")
     }
 
     private fun updateOrAddItem(){
@@ -52,25 +60,23 @@ class Item : AppCompatActivity() {
             return
         }
 
-        Actions.showAlert(this, null, "Confirm ${if (isUpdate!!) "Update" else "Addition"} " +
-                "of ${item.name}", "Confirm", { _, _ ->
-            val params = hashMapOf (
-                "id" to item.id,
-                "name" to nameET.text,
-                "description" to descriptionET.text,
-                "price" to price.replace(",", ""),
-                "stock" to stockET.text,
-                "condition" to item.condition!!.value,
-                "businessID" to actions.getInfo("businessID", DataType.INTEGER)!!
-//                "employeeID" to actions.getInfo("employeeID", DataType.INTEGER)!!
-            )
+        val params = hashMapOf (
+            "id" to item.id,
+            "name" to nameET.text,
+            "description" to descriptionET.text,
+            "price" to price.replace(",", ""),
+            "condition" to item.condition!!.value,
+            "businessID" to actions.getInfo("businessID", DataType.INTEGER)!!
+//            "employeeID" to actions.getInfo("employeeID", DataType.INTEGER)!!
+        )
 
-            Internet(this, DOMAIN + "v1/" + (if (isUpdate!!) "update-item" else "add-item"), params,
-                true){
+        Internet(this, DOMAIN + "v1/" + (if (isUpdate!!) "update-item" else "add-item"), params,
+            true){
+            Actions.showAlert(this, "Successful", it.getString("message"), "Done", { _, _ ->
                 setResult(RESULT_OK)
                 finish()
-            }
-        }, true)
+            })
+        }
     }
 
     private fun setupFields(){
@@ -85,17 +91,12 @@ class Item : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString() != price) {
+                    priceET.removeTextChangedListener(this)
+
                     val cleanString: String = s!!.replace("""[$,.]""".toRegex(), "")
                     val parsed = cleanString.toDoubleOrNull() ?: return
 
-                    priceET.removeTextChangedListener(this)
-
-                    val formatter = NumberFormat.getCurrencyInstance() as DecimalFormat
-                    val symbols: DecimalFormatSymbols = formatter.decimalFormatSymbols
-                    symbols.currencySymbol = "" // Don't use null.
-
-                    formatter.decimalFormatSymbols = symbols
-                    val formatted = formatter.format((parsed / 100))
+                    val formatted = (parsed / 100).currency()
 
                     price = formatted
                     priceET.setText(formatted)
@@ -126,6 +127,17 @@ class Item : AppCompatActivity() {
             when (which){
                 0 -> {
                     // DELETE THIS ITEM
+                    Actions.showAlert(this, "Are you sure?", "You won't be able to recover this " +
+                            "item", "Yes, I am", { _, _ ->
+                        Internet(this, DOMAIN + "v1/delete-item", hashMapOf(
+                            "itemID" to item!!.id
+                        ), true){
+                            Actions.showAlert(this, "Item deleted successfully!", null, "Done",
+                                { _, _ ->
+                                    finish()
+                                })
+                        }
+                    }, true)
                 }
             }
         }
@@ -140,10 +152,7 @@ class Item : AppCompatActivity() {
                 Actions.showImage(image, imageIV)
                 nameET.setText(name)
                 descriptionET.setText(description)
-                stock?.let { stock ->
-                    stockET.setText(stock)
-                }
-                priceET.setText(price.toString())
+                priceET.setText(price.currency())
             }
 
             when (isUpdate){

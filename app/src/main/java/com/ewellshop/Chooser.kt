@@ -49,7 +49,7 @@ class Chooser : AppCompatActivity() {
             // SWITCH TO SELECTED ACCOUNT
             actions.saveInfo("employeeID", businessIDs[position])
             actions.saveInfo("businessID", setting.id)
-            actions.saveInfo("employeeState", XBusinessEmployees.valueOf(setting.sub))
+            actions.saveInfo("employeeState", XBusinessEmployees.valueOf(setting.sub.toUpperCase()))
 
             Actions.showAlert(this, null, "Welcome back to ${setting.main}!", "Great!", { _, _ ->
                 startActivity(Intent(this, MainActivity::class.java))

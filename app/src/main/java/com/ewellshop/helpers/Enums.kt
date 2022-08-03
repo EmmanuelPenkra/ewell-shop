@@ -26,7 +26,8 @@ enum class ItemCondition(val value: Int) {
     OPEN_BOX(2),
     SLIGHTLY_USED(3),
     REFURBISHED(4),
-    USED(5)
+    USED(5),
+    FOR_RENT(6)
 }
 
 
